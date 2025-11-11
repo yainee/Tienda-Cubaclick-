@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cubaclick — Tienda</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" id="hero" style="--hero:url('https://images.unsplash.com/photo-1556909114-16b5f5f2f934?q=80&w=1600&auto=format&fit=crop')">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 id="heroTitle">Cubaclick</h1>
+      <p class="subtitle" id="heroSubtitle">Productos • Combos • Remesas • Conócenos</p>
+      <div class="buttons">
+        <a href="#/productos" class="btn sfx">Ver productos</a>
+        <a href="#/combos" class="btn sfx">Ver combos</a>
+        <a href="#/remesas" class="btn sfx">Remesas</a>
+        <a href="#/conocenos" class="btn btn--ghost sfx">Conócenos</a>
+      </div>
+    </div>
+    <button class="cart-fab sfx" id="openCartBtn" aria-label="Abrir carrito">🛒<span id="cartCount">0</span></button>
+  </header>
+
+  <main id="app">
+    <!-- Vistas SPA renderizadas por app.js -->
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© <span id="year"></span> Cubaclick</span>
+      <a href="#/admin" class="admin-link sfx" title="Panel de control">Admin</a>
+    </div>
+  </footer>
+
+  <!-- Carrito / Checkout Drawer -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__header">
+      <h3>Tu carrito</h3>
+      <button id="closeCartBtn" class="icon-btn sfx" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="drawer__body" id="cartItems"></div>
+
+    <div class="drawer__divider"></div>
+
+    <form id="checkoutForm" class="checkout-form">
+      <h4>Datos del destinatario (tu familiar)</h4>
+      <label>Nombre y apellidos (de tu familiar)
+        <input required id="recName" placeholder="Nombre y apellidos de tu familiar" />
+      </label>
+      <label>Teléfono (de tu familiar)
+        <input required id="recPhone" inputmode="numeric" placeholder="5xxxxxxxx" />
+      </label>
+      <label>Dirección completa (de tu familiar)
+        <textarea required id="recAddress" placeholder="Calle, número, barrio, municipio, provincia"></textarea>
+      </label>
+      <label>Nota opcional al mensajero
+        <textarea id="recNote" placeholder="Ej: tocar suave, edificio 3, apto 4"></textarea>
+      </label>
+
+      <div class="seller-picker">
+        <label>Vendedor asignado
+          <select id="sellerSelect"></select>
+        </label>
+        <button type="button" id="copySellerLink" class="icon-btn sfx" title="Copiar link para este vendedor">🔗</button>
+      </div>
+
+      <div class="totals">
+        <div><span>Subtotal</span><strong id="subtotalUSD">$0.00</strong></div>
+      </div>
+
+      <button type="submit" class="btn btn--full sfx">Enviar pedido por WhatsApp</button>
+    </form>
+  </aside>
+
+  <audio id="clickSfx" preload="auto">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAAA..." type="audio/mpeg">
+  </audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
