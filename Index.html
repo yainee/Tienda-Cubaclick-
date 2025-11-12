@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubaclick</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/869/869869.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, #fff9e6, #f9d97a, #f7c651);
+      text-align: center;
+      color: #5a3e00;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(255, 217, 0, 0.5);
+      position: relative;
+      display: inline-block;
+      margin-top: 60px;
+    }
+
+    /* Brillo animado sobre el logo */
+    h1::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.6) 50%, rgba(255,255,255,0) 100%);
+      animation: shine 6s infinite;
+    }
+    @keyframes shine { to { left: 125%; } }
+
+    p.subtitle {
+      margin-top: -10px;
+      font-style: italic;
+      color: #7a5a00;
+    }
+
+    button {
+      margin: 12px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #d4af37, #b38b1e);
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      margin-top: 80px;
+      color: #d4af37;
+      font-size: 0.9em;
+      background: #fff3cc;
+      padding: 10px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    .update-bar {
+      margin-top: 40px;
+      font-size: 0.95em;
+      color: #7a5a00;
+    }
+
+    /* Corazón en la “i” */
+    .heart {
+      color: #ffce47;
+      text-shadow: 0 0 6px #ffde80;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sonido -->
+  <audio id="bell" src="https://cdn.pixabay.com/audio/2022/03/15/audio_c3c4708b41.mp3" preload="auto"></audio>
+
+  <h1>Cubacl<span class="heart">i</span>ck</h1>
+  <p class="subtitle">Entrega con amor hasta la puerta de tu familia</p>
+
+  <div>
+    <button onclick="playSound()">🛒 Productos</button>
+    <button onclick="playSound()">🎁 Combos</button>
+    <button onclick="playSound()">💸 Remesas</button>
+    <button onclick="playSound()">💬 Conócenos</button>
+  </div>
+
+  <div class="update-bar">📆 Actualizado hoy • Último reporte enviado a las 9:00 p.m.</div>
+
+  <footer><strong>Cubaclick Web ©2025</strong></footer>
+
+  <script>
+    function playSound() {
+      document.getElementById("bell").play();
+    }
+    // Sonido de bienvenida
+    window.addEventListener('load', ()=> {
+      document.getElementById("bell").play();
+    });
+  </script>
+</body>
+</html>
